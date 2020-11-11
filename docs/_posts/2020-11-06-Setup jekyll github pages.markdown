@@ -2,7 +2,7 @@
 layout: posts
 title:  "Jekyll setup!"
 date:   2020-11-06 13:05:00 +0100
-categories: jekyll update
+categories: jekyll-update
 tags: first fourth
 ---
 
