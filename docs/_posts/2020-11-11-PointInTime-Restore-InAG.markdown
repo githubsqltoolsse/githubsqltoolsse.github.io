@@ -3,13 +3,14 @@ layout: posts
 title:  "Point in time restore in AG"
 date:   2020-11-11 10:31:16 +0100
 categories: powershell DBATools
-tags: Powershell DBATools DisasterRecovery
+tags: Powershell DBATools Disaster-Recovery
 ---
 
 Some introduction bla bla.
 
 ## Important notes
 
+{: .notice--warning}
 - Make sure log backups are turned of on all target servers.
 - Verify that default path is correct on the db instances. 
    - They must be equal on all servers.
@@ -20,12 +21,12 @@ Some introduction bla bla.
 ## Steps included in restore
 
 1. Turn of log backups on all servers
-2. Start restore on primary server
-3. Start restore on secondary server (This can be done while restore to primary is running)
-4. Add database to availability group with join only.
+2. Start restore on primary server, use script below.
+3. Start restore on secondary server, use script below. (This can be done while restore on primary is still running)
+4. Add database to availability group with join only. I use the GUI to to this.
 5. Start log backups on all servers.
 
-## Restore to primary
+## Restore on primary
 
 
 {% highlight powershell %}
@@ -62,7 +63,7 @@ Restore-DbaDatabase @params
 {% endhighlight %}
 
 
-## Restore to secondary
+## Restore on secondary
 
 {% highlight powershell %}
 
