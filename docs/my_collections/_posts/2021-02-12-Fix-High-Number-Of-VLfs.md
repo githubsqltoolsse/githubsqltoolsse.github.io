@@ -45,7 +45,8 @@ I use this list as a guiedline for autogrowth settings.
 >
 > Databases > 30GB Growth rate 8192 MB Log if ver < 2014
 
-```Powershell
+```powershell
+
 #Make a list of databases with high vlf:s
 $Database = "MyDatabase1", "MyDatabase2", "MyDatabase3"
 
@@ -73,6 +74,7 @@ Measure-DbaDbVirtualLogFile -SqlInstance $SqlInstance -Database $Database
 Start-DbaAgentJob -SqlInstance $SqlInstance -Job "DatabaseBackup - USER_DATABASES - LOG"
 
 ######################
+
 ```
 
 # Growth the log again
@@ -80,6 +82,7 @@ Start-DbaAgentJob -SqlInstance $SqlInstance -Job "DatabaseBackup - USER_DATABASE
 This dbatools command growth the log in shunks. If you have very small databases I rely on the autogrowth settings and skip this step.
 
 ```Powershell
+
 #####################  Settings
 #Set growth settings for log
 
@@ -94,6 +97,7 @@ $Database = "MyDatabase1", "MyDatabase2", "MyDatabase3"
 #Expand the log in shunks.
 Expand-DbaDbLogFile -SqlInstance $SqlInstance -Database $Database -TargetLogSize $TargetSize -IncrementSize $IncrementSize
 ######################
+
 ```
 
 
