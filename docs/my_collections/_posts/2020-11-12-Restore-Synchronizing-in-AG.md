@@ -1,5 +1,4 @@
 ---
-layout: posts
 title:  "Restore synchronizing in AG"
 date:   2020-11-11 10:31:16 +0100
 categories: TSql

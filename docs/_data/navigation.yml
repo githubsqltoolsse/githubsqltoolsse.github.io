@@ -6,6 +6,8 @@ main:
     url: /categories/
   - title: "Tags"
     url: /tags/
+  - title: "Collections"
+    url: /portfolio/
   - title: "Pages"
     url: /page-archive/
 

@@ -1,9 +1,13 @@
 ---
-layout: posts
 title:  "Point in time restore in AG"
 date:   2020-11-11 10:31:16 +0100
 categories: powershell DBATools
 tags: Powershell DBATools Disaster-Recovery
+classes: wide
+header:
+  image: /assets/images/PointInTimeTop.jpg
+  teaser: /assets/images/PointInTimeTop.jpg
+  caption: "Photo credit: [**Unsplash**](https://unsplash.com)"
 ---
 
 Some introduction bla bla.

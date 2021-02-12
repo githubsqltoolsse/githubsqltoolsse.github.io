@@ -1,28 +1,29 @@
 ---
-layout: posts
-title:  "Generate script for Autogrowth settings"
-date:   2020-11-11 10:31:16 +0100
-categories: TSql Administration
+title:  "Generate script for autogrowth settings"
+date:   2021-02-12 15:27:16 +0100
+categories: tsql Administration
 tags: TSql Administration File-Settings
 ---
 
+
+
 The below code generates tsql sripts that can be used to change file growth settings in a sql server instance.
 
-{: .notice--primary}
-- Databases < 10GB Growth rate between 10MB and 128MB Data
-- Databases < 10GB Growth rate between 10 MB and 128MB Log
-- Databases < 30GB Growth rate between 128 MB and 512MB Data
-- Databases < 30GB Growth rate between 128MB and 512MB Log
-- Databases > 30GB Growth rate 512 MB Log if ver >= 2014
-- Databases > 30GB Growth rate 8192 MB Log if ver < 2014
-- Databases > 30GB Growth in MB but  number individual for data
-- All files should have unlimited growth rate
+
+> - Databases < 10GB Growth rate between 10MB and 128MB Data
+> - Databases < 10GB Growth rate between 10 MB and 128MB Log
+> - Databases < 30GB Growth rate between 128 MB and 512MB Data
+> - Databases < 30GB Growth rate between 128MB and 512MB Log
+> - Databases > 30GB Growth rate 512 MB Log if ver >= 2014
+> - Databases > 30GB Growth rate 8192 MB Log if ver < 2014
+> - Databases > 30GB Growth in MB but  number individual for data
+> - All files should have unlimited growth rate
 
 
 
 # Show current file settings
 
-{% highlight sql %}
+```sql
 
 -- View current file growth settings.
 select 
@@ -43,11 +44,11 @@ select
 from 
 	sys.master_files mf 
 
-{% endhighlight %}
+```
 
 # Generate code for setting file sizes
 
-{% highlight sql %}
+```sql
 
 -- Generate change scripts
 ;with Db_Sizes AS (
@@ -107,11 +108,11 @@ select
 from 
   NewFileSize nfs
 
-{% endhighlight %}
+```
 
 # Generate code for max file setting.
 
-{% highlight sql %}
+```sql
 
 -- Generate change scripts
 select 
@@ -123,4 +124,5 @@ from
 WHERE
 	mf.max_size BETWEEN 0 AND 268435455 --Unlimited = -1, 268435456 is max file setting for a log file. 
 
-{% endhighlight %}
+```
+
